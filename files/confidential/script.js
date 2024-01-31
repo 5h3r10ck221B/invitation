@@ -59,7 +59,7 @@ module.exports = function(grunt) {
 				}]
 
         // Part-1
-        // DELTA{github
+        // DELTA{This_is_FALSE_FLAG}
 
 			},
 			server: '.tmp'
