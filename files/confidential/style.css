@@ -1,0 +1,241 @@
+
+:root {
+  /* Fonts */
+  --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-head: var(--font-body);
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  /* --font-icon: null; */
+
+  --text-color: #2D2F34;
+  --heading-color: var(--text-color);
+  --light-text-color: #707682;
+  --link-color: #0074E0;
+  --link-color-alt: #0263BC;
+  --ins-background: #E6F7EB;
+  --del-background: #FFE6E6;
+  --mark-background: #FFF9E6;
+  --page-background: white;
+  --element-background: #F0F1F3;
+  --accent-color: var(--link-color);
+  --invalid-color: #DC2F2F;
+
+  /* Spacing */
+  --content-width: 55rem; /* 880px */
+  --sidebar-width: 15rem; /* 240px */
+
+  --sp_0: 0.25rem;    /* 4px     utility to substitute 0 margins to add some polish */
+  --sp_1: 0.5rem;     /* 8px     utility for tight paddings etc */
+  --sp_2: 1rem;       /* 16px    1/2 line height, for closely related elements */
+  --sp_4: 2rem;       /* 32px    1 line height, for related elements */
+  --sp_8: 4rem;       /* 64px    2 line heights, for loosly related elements */
+  --sp_16: 8rem;      /* 128px   4 line heights, for unrelated elements */
+
+  --flow-space: var(--sp_4);
+  --gutter: var(--sp_2);
+  --section-space: var(--sp_16);
+
+  /* Modular Scale */
+  --typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
+  --typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
+  --typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
+  --typeset_2: 2rem/2.5rem var(--font-body);    /* 36px/44px */
+  --typeset_3: 2.5rem/3rem var(--font-body);        /* 48px/56px */
+  --typeset_4: 3rem/3rem var(--font-body);      /* 72px/72px */
+  --typeset_5: 5rem/5rem var(--font-body);          /* 80px/80px */
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Links that point to a location on the same page will scroll
+ * smoothly down to that location. */
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+.visually-hidden:not(:focus):not(:active),
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Give the hidden attribute most priority - fixes issue where
+ * an html element can be marked as hidden but is still visible.
+ * Use aria-hidden="true" to hide visual elements from
+ * screen readers. */
+
+[hidden] {
+  display: none !important;
+}
+
+/* Ensures disabled elements do not accept events */
+
+[disabled] {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+/* Use primary color for focus styles */
+
+:focus-visible {
+  outline-color: var(--color-accent);
+  outline-offset: 3px;
+  outline-width: 2px;
+}
+
+/* Adds a margin above an element when it is the target of an ID link */
+
+* {
+  scroll-margin-top: var(--flow-space);
+  scroll-margin-bottom: var(--flow-space);
+}
+
+/* Set typography for small text */
+
+small, .txt-small { font: var(--typeset_-1); }
+
+/* Basic styles for inline semantics */
+
+
+/* Track Styles */
+input[type="range"]::-webkit-slider-runnable-track {
+  border: none;
+  height: 5px;
+  border-radius: 0;
+  background-color: var(--element-background);
+}
+input[type="range"]::-moz-range-track {
+  height: 5px;
+  border: none;
+  border-radius: 0;
+  background-color: var(--element-background);
+}
+
+/* Thumb Styles */
+input[type="range"]::-webkit-slider-thumb {
+  margin-block-start: -0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--page-background);
+  border-radius: 1000rem;
+  background: var(--light-text-color);
+}
+input[type="range"]::-moz-range-thumb {
+  border: 2px solid var(--page-background);
+  border-radius: 1000rem;
+  font-size: 1.2rem;
+  background: var(--light-text-color);
+}
+
+/* !SECTION RANGE */
+/* !SECTION FORMS */
+/** -----------------------------------------------------------------
+  * SECTION BUTTONS
+------------------------------------------------------------------ */
+
+label + button,
+label + .button,
+label + input[type="submit"],
+label + input[type="reset"],
+label + input[type="button"] {
+  margin-block-start: var(--flow-space);
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  
+  /* are_helpful} */
+  
+  width: min-content;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  color: white;
+  background-color: var(--link-color);
+  border: 1px solid var(--link-color);
+  margin-block-end: var(--flow-space);
+
+  font-weight: bold;
+  padding-inline-start: var(--sp_4);
+  padding-inline-end: var(--sp_4);
+}
+
+.button img,
+button img,
+input[type="submit"] img,
+input[type="reset"] img,
+input[type="button"] img {
+  margin: 0;
+}
+
+.button[tabindex="-1"],
+button[disabled],
+input[type="submit"][disabled],
+input[type="reset"][disabled],
+input[type="button"][disabled] {
+  background-color: var(--element-background);
+  color: var(--light-text-color);
+  border-color: var(--element-background);
+}
+
+/* !SECTION BUTTONS */
+/** -----------------------------------------------------------------
+  * SECTION LAYOUT
+------------------------------------------------------------------ */
+/* Section spacing */
+
+/* Center utility */
+
+.center {
+  display: grid;
+  place-items: center;
+}
